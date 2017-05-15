@@ -146,12 +146,7 @@ span.hi-user {
 }
 
 .user-search-box {
-    width: 226px;
     float: right;
-}
-
-.user-search-box form {
-    width: 226px;
 }
 
 #user-search-result {

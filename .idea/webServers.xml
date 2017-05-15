@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4aea589d-85b5-4fb0-85b9-227625af7516" name="simplesite.96.lt" url="http://ftp.simplesite.96.lt">
+        <fileTransfer host="ftp.simplesite.96.lt" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
