@@ -31,8 +31,6 @@ class Category
      * @var integer
      *
      * @ORM\Column(name="parent_id", type="integer", precision=0, scale=0, nullable=false, unique=false)
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Category")
-     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=false)
      *
      * @Annotation\Type("DoctrineModule\Form\Element\ObjectSelect")
      * @Annotation\Attributes({"class":"form-control", "id":"parentId"})
