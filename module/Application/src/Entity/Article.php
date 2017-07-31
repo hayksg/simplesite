@@ -36,7 +36,8 @@ class Article
      * @Annotation\Attributes({"class":"form-control", "id":"title", "required":"required"})
      * @Annotation\Options({"label":"Title", "min":"2", "max":"100"})
      * @Annotation\Required({"required":"true"})
-     * @Annotation\Filter({"name":"stripTags", "name":"StringTrim"})
+     * @Annotation\Filter({"name":"stripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"stringLength", "options":{"encoding":"utf-8", "min":"2", "max":"100"}})
      */
     private $title;
@@ -49,7 +50,8 @@ class Article
      * @Annotation\Type("Zend\Form\Element\Textarea")
      * @Annotation\Attributes({"class":"form-control", "id":"description"})
      * @Annotation\Options({"label":"Description"})
-     * @Annotation\Filter({"name":"stripTags", "name":"StringTrim"})
+     * @Annotation\Filter({"name":"stripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"stringLength", "options":{"encoding":"utf-8"}})
      */
     private $description;
@@ -63,7 +65,8 @@ class Article
      * @Annotation\Attributes({"class":"form-control", "id":"ingredient", "required":"required"})
      * @Annotation\Options({"label":"Ingredient", "min":"2"})
      * @Annotation\Required({"required":"true"})
-     * @Annotation\Filter({"name":"stripTags", "name":"StringTrim"})
+     * @Annotation\Filter({"name":"stripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"stringLength", "options":{"encoding":"utf-8", "min":"2"}})
      */
     private $ingredient;
@@ -77,7 +80,8 @@ class Article
      * @Annotation\Attributes({"class":"form-control", "id":"instruction", "required":"required"})
      * @Annotation\Options({"label":"Instruction", "min":"2"})
      * @Annotation\Required({"required":"true"})
-     * @Annotation\Filter({"name":"stripTags", "name":"StringTrim"})
+     * @Annotation\Filter({"name":"stripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"stringLength", "options":{"encoding":"utf-8", "min":"2"}})
      */
     private $instruction;

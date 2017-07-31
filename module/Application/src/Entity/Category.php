@@ -53,7 +53,8 @@ class Category
      * @Annotation\Attributes({"class":"form-control", "id":"name", "required":"required"})
      * @Annotation\Options({"label":"Category name", "label_attributes":{"class":"control-label col-sm-3"}, "min":"2", "max":"100"})
      * @Annotation\Required({"required":"true"})
-     * @Annotation\Filter({"name":"stripTags", "name":"stringTrim"})
+     * @Annotation\Filter({"name":"stripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"stringLength", "options":{"encoding":"utf-8", "min":"2", "max":"100"}})
      */
     private $name;

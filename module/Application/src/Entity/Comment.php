@@ -35,7 +35,8 @@ class Comment
      * @Annotation\Attributes({"class":"form-control", "id":"userComment", "required":"required"})
      * @Annotation\Options({"min":"2"})
      * @Annotation\Required({"required":"true"})
-     * @Annotation\Filter({"name":"stripTags", "name":"stringTrim"})
+     * @Annotation\Filter({"name":"stripTags"})
+     * @Annotation\Filter({"name":"StringTrim"})
      * @Annotation\Validator({"name":"stringLength", "options":{"encoding":"utf-8", "min":"2"}})
      */
     private $comment;

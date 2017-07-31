@@ -132,6 +132,9 @@ class CategoryController extends AbstractActionController
         $form = $this->formService->getAnnotationForm($this->entityManager, $category);
         $form->setValidationGroup(FormInterface::VALIDATE_ALL);
 
+        /* Removes editing category's parentId */
+        $this->clearCategory($form, 'parentId', 'name');
+
         /* For ordinary form */
         //$form = $this->categoryForm;
         //$form->setHydrator(new DoctrineObject($this->entityManager));
@@ -232,5 +235,26 @@ class CategoryController extends AbstractActionController
         $this->flashMessenger()->setNamespace('success')->addMessage('Category deleted');
 
         return $this->redirect()->toRoute('admin/categories', ['page' => $pageNumber]);
+    }
+
+    /* Removes editing category's parentId */
+    private function clearCategory($form, $field1, $field2)
+    {
+        $categories = $form->get($field1)->getValueOptions();
+        $arr = [];
+
+        if (is_array($categories)) {
+            foreach ($categories as $category) {
+                if (isset($category['label']) && $form->get($field2)->getValue()) {
+                    if($category['label'] == $form->get($field2)->getValue()) {
+                        unset($category);
+                        continue;
+                    }
+                    $arr[] = $category;
+
+                    $form->get($field1)->setValueOptions($arr);
+                }
+            }
+        }
     }
 }
