@@ -22,8 +22,9 @@ class CategoryFilter extends InputFilter
                         'encoding' => 'utf-8',
                         'min' => 3,
                         'max' => 100,
-                    ],
+                    ]
                 ],
+                ['name' => 'digits'],
             ],
         ]);
     }

@@ -82,6 +82,26 @@ class ArticleFilter extends InputFilter
         ]);
 
         $this->add([
+            'name' => 'category',
+            'required' => true,
+            'filters' => [
+                ['name' => 'stripTags'],
+                ['name' => 'stringTrim'],
+            ],
+            'validators' => [
+                [
+                    'name' => 'stringLength',
+                    'options' => [
+                        'encoding' => 'utf-8',
+                        'min' => 3,
+                        'max' => 100,
+                    ]
+                ],
+                ['name' => 'digits'],
+            ],
+        ]);
+
+        $this->add([
             'name' => 'isPublic',
             'filters' => [
                 [
