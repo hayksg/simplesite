@@ -11,6 +11,17 @@ use Zend\Form\Annotation;
 class ContactUs
 {
     /**
+     * @Annotation\Type("Zend\Form\Element\Csrf")
+     * @Annotation\Name("csrf")
+     * @Annotation\Options({
+     *     "csrf_options":{
+     *          "timeout":600
+     *     }
+     * })
+     */
+    private $csrf;
+
+    /**
      * @Annotation\Type("Zend\Form\Element\Text")
      * @Annotation\Attributes({"class":"form-control", "id":"name", "required":"required"})
      * @Annotation\Options({"label":"Name", "label_attributes":{"class":"control-label col-sm-3"}, "min":"1", "max":"50"})

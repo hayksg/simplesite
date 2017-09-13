@@ -24,6 +24,8 @@ $form->prepare();
                 <?php
                     echo $this->form()->openTag($form);
                     echo '<fieldset><legend>Form for login</legend><br>';
+                    echo $this->formHidden($form->get('csrf'));
+                    echo $this->formElementErrors($form->get('csrf'));
                 ?>
                 <?php
                     foreach ($this->form as $element) {

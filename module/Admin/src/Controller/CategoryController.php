@@ -37,6 +37,9 @@ class CategoryController extends AbstractActionController
 
     public function indexAction()
     {
+        $category = new Category();
+        $form = $this->formService->getAnnotationForm($this->entityManager, $category);
+
         $paginator = false;
         $categoriesQueryBuilder = $this->entityManager
                                        ->getRepository(Category::class)
@@ -56,6 +59,7 @@ class CategoryController extends AbstractActionController
         }
 
         return new ViewModel([
+            'form' => $form,
             'categories' => $paginator,
             'pageNumber' => $pageNumber,
             'cnt' => 0,
@@ -132,7 +136,8 @@ class CategoryController extends AbstractActionController
         $form = $this->formService->getAnnotationForm($this->entityManager, $category);
         $form->setValidationGroup(FormInterface::VALIDATE_ALL);
 
-        /* Removes editing category's parentId */
+        /* Removes editing category from parents list
+        (In order to be impossible to select the editable category of the parent himself) */
         $this->clearCategory($form, 'parentId', 'name');
 
         /* For ordinary form */
@@ -156,6 +161,10 @@ class CategoryController extends AbstractActionController
 
             if ($form->isValid() && empty($form->getMessages())) {
                 $category = $form->getData();
+
+                if ($category->getParentId() == 0) {
+                    $category->setParentId(null);
+                }
 
                 $this->entityManager->persist($category);
                 $this->entityManager->flush();
@@ -201,43 +210,53 @@ class CategoryController extends AbstractActionController
             return $this->notFoundAction();
         }
 
-        /* Block for deletion nested articles images (on server) (If category has nested categories) */
-        $nestedCategoriesChain = $this->getNestedCategoriesChain($id);
+        $form = $this->formService->getAnnotationForm($this->entityManager, $category);
+        $form->setValidationGroup(['csrf']);
 
-        array_walk_recursive($nestedCategoriesChain, function($value) {
-            $articles = $this->entityManager->getRepository(Article::class)->findBy(['category' => $value->getId()]);
+        $form->setData($request->getPost());
 
-            if (isset($articles)) {
-                array_walk_recursive($articles, function($article){
+        if ($form->isValid()) {
+            $category = $form->getData();
+
+            /* Block for deletion nested articles images (on server) (If category has nested categories) */
+            $nestedCategoriesChain = $this->getNestedCategoriesChain($id);
+
+            array_walk_recursive($nestedCategoriesChain, function($value) {
+                $articles = $this->entityManager->getRepository(Article::class)->findBy(['category' => $value->getId()]);
+
+                if (isset($articles)) {
+                    array_walk_recursive($articles, function($article){
+                        if (is_file(getcwd() . '/public_html' . $article->getImage())) {
+                            unlink(getcwd() . '/public_html' . $article->getImage());
+                        }
+                    });
+                }
+            });
+            /* End block */
+
+            /* Block for deletion articles images in category (on server) (If category has not nested categories) */
+            $articles = $this->entityManager->getRepository(Article::class)->findBy(['category' => $category]);
+
+            if ($articles) {
+                foreach ($articles as $article) {
                     if (is_file(getcwd() . '/public_html' . $article->getImage())) {
                         unlink(getcwd() . '/public_html' . $article->getImage());
                     }
-                });
-            }
-        });
-        /* End block */
-
-        /* Block for deletion articles images in category (on server) (If category has not nested categories) */
-        $articles = $this->entityManager->getRepository(Article::class)->findBy(['category' => $category]);
-
-        if ($articles) {
-            foreach ($articles as $article) {
-                if (is_file(getcwd() . '/public_html' . $article->getImage())) {
-                    unlink(getcwd() . '/public_html' . $article->getImage());
                 }
             }
+            /* End block */
+
+            $this->entityManager->remove($category);
+            $this->entityManager->flush();
+
+            $this->flashMessenger()->setNamespace('success')->addMessage('Category deleted');
+
+            return $this->redirect()->toRoute('admin/categories', ['page' => $pageNumber]);
         }
-        /* End block */
-
-        $this->entityManager->remove($category);
-        $this->entityManager->flush();
-
-        $this->flashMessenger()->setNamespace('success')->addMessage('Category deleted');
-
-        return $this->redirect()->toRoute('admin/categories', ['page' => $pageNumber]);
     }
 
-    /* Removes editing category's parentId */
+    /* Removes editing category from parents list
+       In order to be impossible to select the editable category of the parent himself) */
     private function clearCategory($form, $field1, $field2)
     {
         $categories = $form->get($field1)->getValueOptions();

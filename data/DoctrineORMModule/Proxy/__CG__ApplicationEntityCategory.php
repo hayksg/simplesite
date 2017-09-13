@@ -64,10 +64,10 @@ class Category extends \Application\Entity\Category implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'parentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'name', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'submit'];
+            return ['__isInitialized__', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'csrf', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'parentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'name', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'submit'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'parentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'name', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'submit'];
+        return ['__isInitialized__', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'csrf', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'parentId', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'name', '' . "\0" . 'Application\\Entity\\Category' . "\0" . 'submit'];
     }
 
     /**

@@ -4,6 +4,7 @@ namespace Authentication\Form;
 
 use Zend\Form\Form;
 use Zend\Form\Element\Captcha;
+use Zend\Form\Element\Csrf;
 use Zend\Captcha\Image as CaptchaImage;
 
 class RegisterForm extends Form
@@ -41,6 +42,16 @@ class RegisterForm extends Form
 
     private function createElements($urlCaptcha)
     {
+        $this->add([
+            'name' => 'csrf',
+            'type' => Csrf::class,
+            'options' => [
+                'crsf_options' => [
+                    'timeout' => 600,
+                ],
+            ],
+        ]);
+
         $this->add([
             'name' => 'name',
             'type' => 'text',

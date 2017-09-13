@@ -481,14 +481,14 @@ $(function(){
 
     /////////   menu accordion   //////////////////////////////////////////////
 
-    $(document).ready(function() {
+    if ($(".topnav").length > 0) {
         $(".topnav").accordion({
             accordion:true,
             speed: 500,
             closedSign: '<span class="caret"></span>',
             openedSign: '<span class="dropup"><span class="caret"></span></span>'
         });
-    });
+    }
 
     // In order don't work link witch has children
 

@@ -17,10 +17,11 @@ class GetCategoryParentName extends AbstractHelper
 
     public function __invoke($parentId)
     {
-        $parentId = abs((int)$parentId);
-        if ($parentId === 0) {
+        if ($parentId === null) {
             return 'Has no parent category';
         }
+
+        $parentId = abs((int)$parentId);
 
         $qb = $this->entityManager->createQueryBuilder();
         $qb->select('c.name')

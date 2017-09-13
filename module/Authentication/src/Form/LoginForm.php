@@ -20,6 +20,14 @@ class LoginForm extends Form
 
     private function createElements()
     {
+        $name = new Element\Csrf('csrf');
+        $name->setOptions([
+            'crsf_options' => [
+                'timeout' => 600,
+            ],
+        ]);
+        $this->add($name);
+
         $name = new Element\Text('name');
         $name->setLabel('Username');
         $name->setAttributes([
@@ -49,7 +57,6 @@ class LoginForm extends Form
         $rememberMe = new Element\Checkbox('rememberMe');
         $rememberMe->setLabel('Remember Me');
         $rememberMe->setAttributes([
-            'class'    => 'form-control',
             'id'       => 'rememberMe',
         ]);
         $this->add($rememberMe);

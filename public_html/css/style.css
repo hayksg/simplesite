@@ -137,6 +137,37 @@ span.hi-user {
     text-decoration: none;
 }
 
+
+
+
+
+
+.manage-table form {
+    display: inline-block;
+}
+
+.manage-table form input[type="submit"] {
+    background: none;
+    border: none;
+    padding-left: 0;
+    color: #158cba;
+
+    text-decoration: underline;
+}
+
+.manage-table form input[type="submit"]:hover {
+    text-decoration: none;
+    margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
 .h4-bold {
     font-weight: bold;
 }
