@@ -253,6 +253,8 @@ class CategoryController extends AbstractActionController
 
             return $this->redirect()->toRoute('admin/categories', ['page' => $pageNumber]);
         }
+
+        return $this->notFoundAction();
     }
 
     /* Removes editing category from parents list

@@ -37,6 +37,9 @@ class ArticleController extends AbstractActionController
 
     public function indexAction()
     {
+        $article = new Article();
+        $form = $this->formService->getAnnotationForm($this->entityManager, $article);
+
         $category = $this->entityManager->getRepository(Category::class)->findAll();
 
         $articlesQueryBuilder = $this->entityManager
@@ -55,6 +58,7 @@ class ArticleController extends AbstractActionController
         $pageNumber = (int)$paginator->getCurrentPageNumber();
 
         return new ViewModel([
+            'form'        => $form,
             'category'    => $category,
             'articles'    => $paginator,
             'pageNumber'  => $pageNumber,
@@ -236,19 +240,28 @@ class ArticleController extends AbstractActionController
             return $this->notFoundAction();
         }
 
-        /* Block for deletion article image on server */
-        if ($article) {
-            if (is_file(getcwd() . '/public_html' . $article->getImage())) {
-                unlink(getcwd() . '/public_html' . $article->getImage());
+        $form = $this->formService->getAnnotationForm($this->entityManager, $article);
+        $form->setValidationGroup(['csrf']);
+
+        $form->setData($request->getPost());
+
+        if ($form->isValid()) {
+            /* Block for deletion article image on server */
+            if ($article) {
+                if (is_file(getcwd() . '/public_html' . $article->getImage())) {
+                    unlink(getcwd() . '/public_html' . $article->getImage());
+                }
             }
+            /* End block */
+
+            $this->entityManager->remove($article);
+            $this->entityManager->flush();
+
+            $this->flashMessenger()->setNamespace('success')->addMessage('Article deleted');
+
+            return $this->redirect()->toRoute('admin/articles', ['page' => $pageNumber]);
         }
-        /* End block */
 
-        $this->entityManager->remove($article);
-        $this->entityManager->flush();
-
-        $this->flashMessenger()->setNamespace('success')->addMessage('Article deleted');
-
-        return $this->redirect()->toRoute('admin/articles', ['page' => $pageNumber]);
+        return $this->notFoundAction();
     }
 }

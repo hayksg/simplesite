@@ -23,6 +23,8 @@ $form->prepare();
                     <?php
                     echo $this->form()->openTag($form);
                     echo "<fieldset><legend>Form for editing article</legend>";
+                    echo $this->formHidden($form->get('csrf'));
+                    echo $this->formElementErrors($form->get('csrf'));
 
                     foreach ($form as $element) {
                         $label = '';
