@@ -246,6 +246,8 @@ class ArticleController extends AbstractActionController
         $form->setData($request->getPost());
 
         if ($form->isValid()) {
+            $article = $form->getData();
+
             /* Block for deletion article image on server */
             if ($article) {
                 if (is_file(getcwd() . '/public_html' . $article->getImage())) {
