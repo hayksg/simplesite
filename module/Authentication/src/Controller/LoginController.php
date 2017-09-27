@@ -9,6 +9,7 @@ use Authentication\Form\LoginForm;
 use Application\Entity\User;
 use Authentication\Model\AppAuthStorage;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject;
+use Zend\Session\SessionManager;
 
 class LoginController extends AbstractActionController
 {
@@ -58,6 +59,9 @@ class LoginController extends AbstractActionController
                         $time = time() + 3600 * 24 * 360;
                         $this->authStorage->setRememberMe(1, $time);
                         $this->ormAuthService->setStorage($this->authStorage);
+
+                        $sessionManager = new SessionManager();
+                        $sessionManager->regenerateId();
                     }
                     return $this->redirect()->toRoute('home');
                 }
