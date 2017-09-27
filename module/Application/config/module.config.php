@@ -32,7 +32,7 @@ return [
             'home' => [
                 'type' => Segment::class,
                 'options' => [
-                    'route'    => '/[application/page/:page]',
+                    'route'    => '/[home/page/:page]',
                     'constraints'    => [
                         'page' => '[0-9]+',
                     ],
