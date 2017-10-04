@@ -3,6 +3,7 @@
 namespace Authentication\Filter;
 
 use Zend\InputFilter\InputFilter;
+use Zend\Validator\InArray;
 
 class LoginFilter extends InputFilter
 {
@@ -41,6 +42,19 @@ class LoginFilter extends InputFilter
                         'encoding' => 'utf-8',
                         'min' => 2,
                         'max' => 100,
+                    ],
+                ],
+            ],
+        ]);
+
+        $this->add([
+            'name' => 'rememberMe',
+            'required' => false,
+            'validators' => [
+                [
+                    'name' => InArray::class,
+                    'options' => [
+                        'haystack' => [0, 1],
                     ],
                 ],
             ],

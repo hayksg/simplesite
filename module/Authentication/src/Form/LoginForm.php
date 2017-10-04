@@ -55,9 +55,15 @@ class LoginForm extends Form
         $this->add($password);
 
         $rememberMe = new Element\Checkbox('rememberMe');
-        $rememberMe->setLabel('Remember Me');
+        //$rememberMe->setLabel('Remember Me');
         $rememberMe->setAttributes([
             'id'       => 'rememberMe',
+        ]);
+        $rememberMe->setOptions([
+            'label' => 'Remember Me',
+            'use_hidden_element' => true,
+            'checked_value' => 1,
+            'unchecked_value' => 0,
         ]);
         $this->add($rememberMe);
 
