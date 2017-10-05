@@ -5,6 +5,8 @@ namespace Authentication;
 use Doctrine\ORM\EntityManager;
 use Zend\Authentication\AuthenticationService;
 use Application\Entity\User;
+use Zend\Session\SessionManager;
+use Zend\Mvc\MvcEvent;
 
 class Module
 {
@@ -80,5 +82,15 @@ class Module
                 },
             ],
         ];
+    }
+
+    public function onBootstrap(MvcEvent $event)
+    {
+        $application = $event->getApplication();
+        $serviceManager = $application->getServiceManager();
+
+        // Следующая строка инстанцирует SessionManager и автоматически
+        // делает его выбираемым 'по умолчанию'.
+        $sessionManager = $serviceManager->get(SessionManager::class);
     }
 }

@@ -8,6 +8,8 @@
 namespace Application;
 
 use Doctrine\ORM\EntityManager;
+use Zend\Mvc\MvcEvent;
+use Zend\Session\SessionManager;
 
 class Module
 {
@@ -83,5 +85,15 @@ class Module
                 'textFilter' => Controller\Plugin\TextFilter::class,
             ],
         ];
+    }
+
+    public function onBootstrap(MvcEvent $event)
+    {
+        $application = $event->getApplication();
+        $serviceManager = $application->getServiceManager();
+
+        // Следующая строка инстанцирует SessionManager и автоматически
+        // делает его выбираемым 'по умолчанию'.
+        $sessionManager = $serviceManager->get(SessionManager::class);
     }
 }

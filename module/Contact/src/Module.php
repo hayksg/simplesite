@@ -4,6 +4,8 @@ namespace Contact;
 
 use Zend\Mail\Transport\Smtp;
 use Zend\Mail\Transport\SmtpOptions;
+use Zend\Mvc\MvcEvent;
+use Zend\Session\SessionManager;
 
 class Module
 {
@@ -39,5 +41,15 @@ class Module
                 },
             ],
         ];
+    }
+
+    public function onBootstrap(MvcEvent $event)
+    {
+        $application = $event->getApplication();
+        $serviceManager = $application->getServiceManager();
+
+        // Следующая строка инстанцирует SessionManager и автоматически
+        // делает его выбираемым 'по умолчанию'.
+        $sessionManager = $serviceManager->get(SessionManager::class);
     }
 }

@@ -466,7 +466,6 @@ $(function(){
 
     if ($(document).width() < 768) {
         $('ul.app-article-search-result').css({
-            width: '230px',
             right: 0,
             top: '105px',
             maxHeight: '150px',

@@ -5,6 +5,7 @@ namespace Admin;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\MvcEvent;
 use Doctrine\ORM\EntityManager;
+use Zend\Session\SessionManager;
 
 class Module
 {
@@ -123,5 +124,12 @@ class Module
                 $controller->layout('layout/adminLayout');
             }
         );
+
+        $application = $e->getApplication();
+        $serviceManager = $application->getServiceManager();
+
+        // Следующая строка инстанцирует SessionManager и автоматически
+        // делает его выбираемым 'по умолчанию'.
+        $sessionManager = $serviceManager->get(SessionManager::class);
     }
 }
