@@ -321,13 +321,6 @@ $(function(){
         return date.getDate() + ' ' +  monthNames[date.getMonth()] + ' ' + date.getFullYear();
     };
 
-    var wordFilter = function (str) {
-        var filterWords = ["fuck", "idiot", "bitch", "fool", "dumb"];
-        var rgx = new RegExp(filterWords.join("|"), "gi"); // "i" is to ignore case and "g" for global
-
-        return str.replace(rgx, "****");
-    };
-
     var addComment = function () {
         var formValue = $('.comment-form-block form#comment').serialize();
 
@@ -337,23 +330,22 @@ $(function(){
             dataType: 'json',
             data: formValue,
             success: function (data) {
-                if (data['success'] == 1) {
-                    var comment = nl2br($('#userComment').val());
-                    var comment = wordFilter(comment);
+                if (data.commentText) {
+                    var comment = nl2br(data.commentText);
                     $('#comment-text').html(comment);
 
-                    $('#new-comment span').append(" <span>" + getFullDate() + "</span>");
+                    $('#new-comment span').append("&nbsp;&nbsp;<span>" + getFullDate() + "</span>");
                     $('#new-comment').show();
                     $('.comment-form-block').hide('slow');
                     $('#form-for-comment-button').attr('disabled', 'disabled');
 
                     commentsCount++;
                     $('.comments-count').text('(' + commentsCount + ')');
-                } else {
+                } else if (data.errors) {
                     $('#comment-form-errors').html('');
 
-                    for (var key in data) {
-                        $('#comment-form-errors').append("<li>" + data[key] + "</li>");
+                    for (var key in data.errors) {
+                        $('#comment-form-errors').append("<li>" + data.errors[key] + "</li>");
                     }
                 }
             }

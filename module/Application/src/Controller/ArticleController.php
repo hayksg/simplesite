@@ -181,7 +181,8 @@ class ArticleController extends AbstractActionController
 
     public function addCommentAction()
     {
-        $errors = [];
+        $errors  = [];
+        $commentText = '';
 
         $comment = new Comment();
         $form = $this->formService->getAnnotationForm($this->entityManager, $comment);
@@ -194,11 +195,10 @@ class ArticleController extends AbstractActionController
 
             if ($form->isValid()) {
                 $comment->setComment($this->textFilter($comment->getComment()));
+                $commentText = $comment->getComment();
 
                 $this->entityManager->persist($comment);
                 $this->entityManager->flush();
-
-                $response->setContent(\Zend\Json\Json::encode(['success' => 1]));
             } else {
                 $messages = $form->getMessages();
                 if ($messages) {
@@ -209,11 +209,10 @@ class ArticleController extends AbstractActionController
                             }
                         }
                     }
-
-                    $response->setContent(\Zend\Json\Json::encode($errors));
                 }
             }
 
+            $response->setContent(\Zend\Json\Json::encode(['errors' => $errors, 'commentText' => $commentText]));
             return $response;
         }
     }
