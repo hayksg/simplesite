@@ -33,6 +33,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-component-installer" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-crypt" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-escaper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />
@@ -91,6 +92,7 @@
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-component-installer" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-crypt" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-escaper" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />
@@ -145,6 +147,7 @@
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-code" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-component-installer" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-config" />
+          <root url="file://$MODULE_DIR$/vendor/zendframework/zend-crypt" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-escaper" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-eventmanager" />
           <root url="file://$MODULE_DIR$/vendor/zendframework/zend-filter" />

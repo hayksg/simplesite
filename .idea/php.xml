@@ -54,6 +54,7 @@
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-mail" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-mime" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-crypt" />
     </include_path>
   </component>
 </project>
