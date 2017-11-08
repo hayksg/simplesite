@@ -92,5 +92,22 @@ class Module
         // Следующая строка инстанцирует SessionManager и автоматически
         // делает его выбираемым 'по умолчанию'.
         $sessionManager = $serviceManager->get(SessionManager::class);
+
+        /*
+             When browser was updated, changing its User Agent string an error occurred: Session validation failed.
+             I added this block and app again started to work.
+
+             Start block
+         */
+        try {
+            if (! $sessionManager->isValid()) {
+                $sessionManager->forgetMe();
+                throw new \Exception('An error occurred. Please re-login.');
+            }
+        }catch (\Exception $e) {
+            echo $e->getMessage();
+        }
+
+        /* End block */
     }
 }

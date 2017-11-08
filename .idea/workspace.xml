@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85da1085-a2d7-4215-ab89-26cb395d35fe" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Hayk.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Hayk.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/site.local.iml" afterPath="$PROJECT_DIR$/.idea/site.local.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Application/src/Entity/User.php" afterPath="$PROJECT_DIR$/module/Application/src/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Authentication/config/module.config.php" afterPath="$PROJECT_DIR$/module/Authentication/config/module.config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Authentication/src/Controller/RegisterController.php" afterPath="$PROJECT_DIR$/module/Authentication/src/Controller/RegisterController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/module/Authentication/src/Module.php" afterPath="$PROJECT_DIR$/module/Authentication/src/Module.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,18 +59,28 @@
       <file leaf-file-name="ContactUs.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Contact/src/Entity/ContactUs.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="1122">
               <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Application/src/Entity/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="3190">
               <caret line="145" column="5" lean-forward="false" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Module.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module/Authentication/src/Module.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="686">
+              <caret line="110" column="23" lean-forward="false" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -86,8 +89,8 @@
       <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Authentication/src/Controller/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+            <state relative-caret-position="1166">
+              <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
               <folding>
                 <element signature="e#45#94#0#PHP" expanded="true" />
               </folding>
@@ -98,7 +101,7 @@
       <file leaf-file-name="module.config.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/module/Authentication/config/module.config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="1452">
               <caret line="68" column="43" lean-forward="false" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
               <folding>
                 <element signature="e#34#63#0#PHP" expanded="true" />
@@ -234,7 +237,6 @@
         <option value="$PROJECT_DIR$/module/Authentication/src/Form/LoginForm.php" />
         <option value="$PROJECT_DIR$/module/Authentication/src/Filter/LoginFilter.php" />
         <option value="$PROJECT_DIR$/config/autoload/global.php" />
-        <option value="$PROJECT_DIR$/module/Authentication/src/Module.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Module.php" />
         <option value="$PROJECT_DIR$/module/Admin/src/Module.php" />
         <option value="$PROJECT_DIR$/module/Contact/src/Module.php" />
@@ -245,6 +247,7 @@
         <option value="$PROJECT_DIR$/module/Authentication/src/Controller/RegisterController.php" />
         <option value="$PROJECT_DIR$/module/Authentication/config/module.config.php" />
         <option value="$PROJECT_DIR$/module/Application/src/Entity/User.php" />
+        <option value="$PROJECT_DIR$/module/Authentication/src/Module.php" />
       </list>
     </option>
   </component>
@@ -338,8 +341,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -516,6 +517,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -804,12 +807,14 @@
       <workItem from="1507467618012" duration="17000" />
       <workItem from="1507467759220" duration="148000" />
       <workItem from="1508000908846" duration="5000" />
-      <workItem from="1508174046825" duration="803000" />
+      <workItem from="1508174046825" duration="1070000" />
+      <workItem from="1510167278196" duration="800000" />
+      <workItem from="1510169349508" duration="51000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="710436000" />
+    <option name="totallyTimeSpent" value="711554000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1106,13 +1111,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/module/Authentication/src/Module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2024">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Module.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -1209,7 +1207,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Contact/src/Entity/ContactUs.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="1122">
           <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
           <folding />
         </state>
@@ -1217,8 +1215,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Authentication/src/Controller/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+        <state relative-caret-position="1166">
+          <caret line="60" column="39" lean-forward="false" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
           <folding>
             <element signature="e#45#94#0#PHP" expanded="true" />
           </folding>
@@ -1227,7 +1225,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Authentication/config/module.config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
+        <state relative-caret-position="1452">
           <caret line="68" column="43" lean-forward="false" selection-start-line="68" selection-start-column="43" selection-end-line="68" selection-end-column="43" />
           <folding>
             <element signature="e#34#63#0#PHP" expanded="true" />
@@ -1237,8 +1235,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/module/Application/src/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="3190">
           <caret line="145" column="5" lean-forward="false" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module/Authentication/src/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="110" column="23" lean-forward="false" selection-start-line="110" selection-start-column="23" selection-end-line="110" selection-end-column="23" />
           <folding />
         </state>
       </provider>
